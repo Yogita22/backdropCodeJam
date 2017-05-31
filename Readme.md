@@ -1,3 +1,5 @@
+![S-PARK Event][S-PARK]
+
 [S-PARK]: https://vox.publicis.sapient.com/groups/image/9860/1.png?a=188925 "S-Park Event"
 
 ## Do you have the Oomph Factor?
@@ -13,8 +15,8 @@ Currently we have branding assets from Sapient Razorfish , XT Summit 2017 ready 
 
 ## Assets at hand.
 
-[SR - Brand - Tool Kit] (https://vox.publicis.sapient.com/groups/sapientrazorfish/projects/sapientrazorfish-brand-toolkit)
-[XT Summit 2017](https://lion.app.box.com/files/0/f/28333770700)
+* [SR - Brand - Tool Kit](https://vox.publicis.sapient.com/groups/sapientrazorfish/projects/sapientrazorfish-brand-toolkit)
+* [XT Summit 2017](https://lion.app.box.com/files/0/f/28333770700)
 
 ## How to Submit Responses.
 * Fork the project.

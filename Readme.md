@@ -1,8 +1,8 @@
-![S-PARK Event][S-PARK]
+[![S-PARK Event][S-PARK]](https://vox.publicis.sapient.com/groups/s-park)
 
 [S-PARK]: https://vox.publicis.sapient.com/groups/image/9860/1.png?a=188925 "S-Park Event"
 
-## Do you have the Oomph Factor?
+## Story Tellers in you have a wonderful chance now !
 
 ## Back Me Up.
 

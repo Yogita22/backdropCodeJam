@@ -44,6 +44,9 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
+            if("counter" in localStorage){
+
+            }
             $.getJSON("data/preload-images.json", function (data) {
                 var items = [];
                 console.log(data.imgfiles);
@@ -99,8 +102,10 @@
                         arrows: false,
                         centerMode: false,
                         infinite: false,
+                        pauseOnHover: false,
+                        pauseOnFocus: false,
                         // variableWidth: true,
-                        //   adaptiveHeight: true,
+                        // adaptiveHeight: true,
                         // centerPadding: '60px',
                         lazyLoad: 'ondemand',
 
@@ -113,12 +118,14 @@
                     //              tiSlick.slick('slickGoTo', 3);
                     //   });
                 });
+
+                    //  TODO : start slick from where it left off using Local Storage
+                      tiSlick.on('init', function(event, slick) {
+                                 tiSlick.slick('slickGoTo', 7);
+                      });
         });
     </script>
 
 </body>
 
 </html>
-
-<!--
-<img data-lazy="img/lazyfonz1.png"/>-->

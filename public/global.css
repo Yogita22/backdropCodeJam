@@ -1,0 +1,103 @@
+
+.slick-slide img {
+    max-width: 100%;
+	height: 100vh;	
+	margin: 0 auto;
+}
+.slick-slide{
+	background-color:black;
+background-image:
+radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
+background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+	/*background: url('assets/images/bgImage.jpg') repeat center center;*/
+}
+
+/*Side Banner CSS*/
+.exponea-side-banner {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+  width: 22%;
+  color: #1c1733;
+  font-family: sans-serif;
+  z-index: 10000;
+  pointer-events: none;
+  padding: 21px 42px 0 12px;
+  min-height: 800px;
+  height: 70vh;
+}
+.exponea-side-banner .exponea-clip {
+  pointer-events: auto;
+}
+.exponea-side-banner svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  fill: #ffd500;
+}
+.exponea-side-banner .exponea-side-banner-content {
+	font-size:20px;
+  position: relative;
+  z-index: 10;
+}
+.exponea-side-banner span {
+  display: block;
+  position: relative;
+}
+.exponea-side-banner .exponea-side-banner-content-title,
+.exponea-side-banner .exponea-side-banner-content-more {
+  width: 100%;
+  transition: opacity 0.3s;
+  text-align: left;
+}
+
+.exponea-side-banner .exponea-side-banner-content-title {
+  font-weight: 600;
+}
+.exponea-side-banner .exponea-side-banner-content-more {
+  text-decoration: underline;
+  font-size: 0.85em;
+  padding: 1em 0 0;
+}
+.exponea-side-banner .exponea-side-banner-content-hover {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(-100px, 0, 0);
+  position: absolute;
+  top: 1em;
+  bottom: 1em;
+  width: 170px;
+  padding: 0;
+}
+
+.exponea-side-banner .exponea-side-banner-content-hover-title {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.exponea-side-banner .exponea-side-banner-content-hover-text1 {
+  margin-top: 20px;
+}
+.exponea-side-banner .exponea-side-banner-content-hover-text2 {
+  margin-top: 20px;
+}
+.exponea-side-banner .exponea-side-banner-content-link {
+  text-decoration: none;
+  color: white;
+  background-color: #1c1733;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 2px;
+  margin-top: 20px;
+  cursor: pointer;
+  pointer-events: auto;
+}

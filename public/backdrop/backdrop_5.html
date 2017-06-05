@@ -1,0 +1,578 @@
+<style>
+.row {
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-flow: column;
+}
+
+.rick {
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+.rick-hair {
+  position: absolute;
+  bottom: 20vh;
+  z-index: 1;
+  background: #b1daee;
+  width: 33vh;
+  height: 36vh;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+}
+.rick-hair:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30vh;
+  height: 34.5vh;
+  background: #b1daee;
+  -webkit-transform: rotate(145deg);
+  -moz-transform: rotate(145deg);
+  -ms-transform: rotate(145deg);
+  -o-transform: rotate(145deg);
+}
+.rick-hair:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33vh;
+  height: 33vh;
+  background: #b1daee;
+  -webkit-transform: rotate(-65deg);
+  -moz-transform: rotate(-65deg);
+  -ms-transform: rotate(-65deg);
+  -o-transform: rotate(-65deg);
+}
+.rick-head {
+  z-index: 3;
+  position: relative;
+  box-shadow: 0 0 0.8rem #000;
+  background-color: #decdbd;
+  height: 30vh;
+  width: 30vh;
+  border-radius: 10vh;
+  align-items: center;
+}
+.rick-head:before, .rick-head:after {
+  content: "";
+  z-index: 0;
+  position: absolute;
+  bottom: 6vh;
+  background-color: #decdbd;
+  height: 4.5vh;
+  width: 4.5vh;
+  border-radius: 30vh;
+}
+.rick-head:before {
+  right: 90%;
+  border-left: solid 0.2rem #666;
+}
+.rick-head:after {
+  left: 90%;
+  border-right: solid 0.2rem #666;
+}
+.rick-head .eyebrow {
+  background-color: #b1daee;
+  width: 23.07692vh;
+  height: 2.5vh;
+  border-radius: 30vh;
+  margin-top: 6vh;
+  animation: browMove 5s ease-in-out alternate infinite;
+  border: solid 0.2rem #666;
+}
+.rick-head .eyes {
+  position: relative;
+}
+.rick-head .eyes > div:not(.nose) {
+  border: solid 0.2rem #666;
+  background-color: #FFF;
+  width: 12vh;
+  height: 12vh;
+  border-radius: 30vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rick-head .eyes > div:not(.nose):before {
+  content: "*";
+  animation: lookAround 5s ease-in-out alternate infinite;
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  font-size: 6vh;
+  height: 4rem;
+  line-height: 6rem;
+  text-align: center;
+  font-weight: bold;
+}
+.rick-head .eyes > div:not(.nose):after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  height: 1vh;
+  width: 6vh;
+  border-bottom: solid 0.2rem #666;
+  border-radius: 50%;
+}
+.rick-head .nose {
+  position: absolute;
+  bottom: 0;
+  right: 10.8vh;
+  transform: rotate(-20deg);
+  width: 3vh;
+  height: 9vh;
+  border-bottom: solid 0.3rem #666;
+  border-radius: 60%;
+  margin: -1.5vh 0;
+}
+.rick-head .mouth {
+  position: relative;
+  border-top: solid 0.5rem #4d4d4d;
+  width: 15vh;
+  height: 3.33333vh;
+  border-radius: 40%;
+  margin-top: 3.33333vh;
+}
+.rick-head .mouth:before, .rick-head .mouth:after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 2vh;
+  width: 2vh;
+  border-radius: 50%;
+}
+.rick-head .mouth:before {
+  right: 90%;
+  border-left: solid 0.2rem #666;
+}
+.rick-head .mouth:after {
+  left: 90%;
+  border-right: solid 0.2rem #666;
+}
+.rick-body {
+  z-index: 2;
+  overflow: visible;
+  height: 10vh;
+}
+.rick-body .arm {
+  border: solid 0.2rem #666;
+  position: relative;
+  border-top: none;
+  width: 1.16667rem;
+  height: 13vh;
+  margin-top: -1vh;
+  background-color: #f5f5f5;
+}
+.rick-body .arm:after {
+  content: "";
+  border: solid 0.2rem #666;
+  background-color: #decdbd;
+  height: 1rem;
+  left: -.3rem;
+  right: -.3rem;
+  position: absolute;
+  top: 98%;
+  border-radius: 1rem;
+}
+.rick-body .arm .rayGun {
+  border: solid 0.2rem #666;
+  position: absolute;
+  top: 100%;
+  right: 100%;
+  width: 1rem;
+  height: 4rem;
+  background-color: #CCC;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: .1rem;
+}
+.rick-body .arm .rayGun:before {
+  content: '';
+  z-index: 5;
+  width: .5rem;
+  height: .8rem;
+  background-color: #000;
+  border: solid 0.2rem #666;
+  position: absolute;
+  top: -.5rem;
+  right: 70%;
+  transform: rotate(45deg);
+}
+.rick-body .arm .rayGun:after {
+  content: '';
+  border: solid 0.2rem #666;
+  z-index: 5;
+  width: 2rem;
+  height: 1.2rem;
+  position: absolute;
+  top: 40%;
+  right: 100%;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  background-image: radial-gradient(circle closest-side, #ffffff, rgba(127, 255, 80, 0.7));
+  animation: pulse .5s alternate infinite ease;
+}
+.rick-body .arm.arm--right {
+  transform-origin: top;
+  animation: aimAround 5s ease-in-out alternate infinite;
+}
+.rick-body .torso {
+  box-shadow: 0 0 0.4rem #000;
+  background-color: #aae6e2;
+  height: 10vh;
+  width: 7rem;
+  position: relative;
+}
+.rick-body .torso .labCoat {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.rick-body .torso .labCoat-side {
+  box-shadow: 0 0 1rem #000;
+  z-index: 10;
+  width: 2.1rem;
+  background-color: #f5f5f5;
+  height: 15vh;
+  position: relative;
+}
+.rick-body .torso .labCoat-side:before {
+  content: '';
+  position: absolute;
+  background-color: white;
+  width: 1vh;
+  height: 3vh;
+}
+.rick-body .torso .labCoat-side.labCoat--right {
+  border-bottom-right-radius: 100%;
+}
+.rick-body .torso .labCoat-side.labCoat--right:before {
+  border-bottom-left-radius: 100%;
+  border-left: 0.2rem solid #666;
+  right: 0;
+}
+.rick-body .torso .labCoat-side.labCoat--left {
+  border-bottom-left-radius: 100%;
+}
+.rick-body .torso .labCoat-side.labCoat--left:before {
+  border-bottom-right-radius: 100%;
+  border-right: 0.2rem solid #666;
+  left: 0;
+}
+.rick-body .torso .labCoat-opening {
+  background-color: #aae6e2;
+  flex-grow: 1;
+  height: 10vh;
+}
+.rick-belt {
+  z-index: 1;
+  background-color: #352909;
+  height: 1rem;
+  width: 7rem;
+  justify-content: center;
+}
+.rick-belt:before {
+  content: "";
+  background-color: gold;
+  height: 1rem;
+  width: 1rem;
+}
+.rick-legs {
+  z-index: 1;
+  height: 10vh;
+  width: 7rem;
+  justify-content: space-between;
+  border-top: solid 1.25vh #7d6234;
+  position: relative;
+}
+.rick-legs:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 2.1rem;
+  left: 2.1rem;
+  height: 2.65vh;
+  background-color: darkgray;
+  box-shadow: inset 0 0.5rem 1.2rem rgba(0, 0, 0, 0.8);
+}
+.rick-legs > div {
+  background-color: #7d6234;
+  height: 10vh;
+  width: 2.1rem;
+  justify-content: flex-end;
+  margin-top: -.1rem;
+}
+.rick-legs > div .sock {
+  background-color: #FFF;
+  height: 1rem;
+  width: 100%;
+  box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.6);
+}
+.rick-legs > div .shoe {
+  margin-top: -.5rem;
+  background-color: #444;
+  height: 1rem;
+  width: 3.88889rem;
+  padding: .5rem;
+  border-top-right-radius: 70%;
+  border-bottom: solid .2rem tan;
+}
+.rick .rickLeg--right .shoe {
+  transform: rotateX(0deg) rotateY(180deg);
+  transform-origin: 1.05rem;
+}
+
+.stars {
+  min-height: 80vh;
+  background-color: #100037;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 3rem;
+  margin-bottom: -3rem;
+}
+
+.ground {
+  background-color: #3a0943;
+  min-height: calc(20vh + 3rem);
+  z-index: 1000;
+  position: relative;
+  border-top: solid 0.2rem #8f29a8;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  margin: 0 -50vw;
+}
+.ground:before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 10vw;
+  top: 2rem;
+  left: 1rem;
+  height: .3rem;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 20rem 1rem 0 rgba(143, 41, 168, 0.1) , 41vw 18vh 0 0 rgba(143, 41, 168, 0.1) , 75vw 13vh 0 0 rgba(143, 41, 168, 0.1) , 92vw 17vh 0 0 rgba(143, 41, 168, 0.1) , 38vw 19vh 0 0 rgba(143, 41, 168, 0.1) , 37vw 12vh 0 0 rgba(143, 41, 168, 0.1) , 41vw 14vh 0 0 rgba(143, 41, 168, 0.1) , 21vw 16vh 0 0 rgba(143, 41, 168, 0.1) , 20vw 12vh 0 0 rgba(143, 41, 168, 0.1) , 38vw 6vh 0 0 rgba(143, 41, 168, 0.1) , 85vw 16vh 0 0 rgba(143, 41, 168, 0.1) , 26vw 15vh 0 0 rgba(143, 41, 168, 0.1) , 38vw 2vh 0 0 rgba(143, 41, 168, 0.1) , 44vw 7vh 0 0 rgba(143, 41, 168, 0.1) , 8vw 15vh 0 0 rgba(143, 41, 168, 0.1) , 37vw 18vh 0 0 rgba(143, 41, 168, 0.1) , 83vw 11vh 0 0 rgba(143, 41, 168, 0.1) , 46vw 17vh 0 0 rgba(143, 41, 168, 0.1) , 97vw 18vh 0 0 rgba(143, 41, 168, 0.1) , 90vw 10vh 0 0 rgba(143, 41, 168, 0.1) , 91vw 15vh 0 0 rgba(143, 41, 168, 0.1);
+}
+
+.stars {
+  z-index: 0;
+}
+.stars:before {
+  position: absolute;
+  width: 3.5rem;
+  height: 3.5rem;
+  content: '';
+  border-radius: 1.75rem;
+}
+.stars:before {
+  box-shadow: 70rem 40rem 0.08rem -0.02rem #8eea3d , -162rem 6rem 0.02rem -0.05rem rgba(142, 234, 61, 0.7), 158rem 19rem 0.02rem -0.05rem rgba(142, 234, 61, 0.7) , -73rem -30rem 0.02rem -0.05rem rgba(142, 234, 61, 0.7), 133rem -19rem 0.02rem -0.05rem rgba(142, 234, 61, 0.7) , -146rem 30rem 0.02rem -0.05rem rgba(142, 234, 61, 0.1), 85rem 56rem 0.02rem -0.05rem rgba(142, 234, 61, 0.1) , -40rem -72rem 0.02rem -0.05rem rgba(142, 234, 61, 0.1), 137rem -79rem 0.02rem -0.05rem rgba(142, 234, 61, 0.1) , -61rem 29rem 0.02rem -0.1rem rgba(142, 234, 61, 0.2), 161rem 74rem 0.02rem -0.1rem rgba(142, 234, 61, 0.2) , -66rem -85rem 0.02rem -0.1rem rgba(142, 234, 61, 0.2), 186rem -91rem 0.02rem -0.1rem rgba(142, 234, 61, 0.2) , -143rem 91rem 0.02rem -0.05rem rgba(142, 234, 61, 0.1), 19rem 42rem 0.02rem -0.05rem rgba(142, 234, 61, 0.1) , -1rem -19rem 0.02rem -0.05rem rgba(142, 234, 61, 0.1), 115rem -65rem 0.02rem -0.05rem rgba(142, 234, 61, 0.1) , -74rem 31rem 0.02rem -0.15rem rgba(142, 234, 61, 0.5), 161rem 12rem 0.02rem -0.15rem rgba(142, 234, 61, 0.5) , -105rem -19rem 0.02rem -0.15rem rgba(142, 234, 61, 0.5), 128rem -92rem 0.02rem -0.15rem rgba(142, 234, 61, 0.5) , -130rem 3rem 0.02rem -0.15rem rgba(142, 234, 61, 0.3), 137rem 38rem 0.02rem -0.15rem rgba(142, 234, 61, 0.3) , -65rem -19rem 0.02rem -0.15rem rgba(142, 234, 61, 0.3), 195rem -80rem 0.02rem -0.15rem rgba(142, 234, 61, 0.3) , -127rem 50rem 0.02rem -0.15rem rgba(142, 234, 61, 0.3), 172rem 73rem 0.02rem -0.15rem rgba(142, 234, 61, 0.3) , -183rem -64rem 0.02rem -0.15rem rgba(142, 234, 61, 0.3), 95rem -84rem 0.02rem -0.15rem rgba(142, 234, 61, 0.3) , -39rem 82rem 0.02rem -0.05rem rgba(142, 234, 61, 0.5), 91rem 33rem 0.02rem -0.05rem rgba(142, 234, 61, 0.5) , -7rem -74rem 0.02rem -0.05rem rgba(142, 234, 61, 0.5), 195rem -9rem 0.02rem -0.05rem rgba(142, 234, 61, 0.5) , -78rem 25rem 0.02rem -0.05rem rgba(142, 234, 61, 0.1), 32rem 65rem 0.02rem -0.05rem rgba(142, 234, 61, 0.1) , -8rem -4rem 0.02rem -0.05rem rgba(142, 234, 61, 0.1), 85rem -49rem 0.02rem -0.05rem rgba(142, 234, 61, 0.1) , -27rem 36rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3), 138rem 47rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3) , -78rem -70rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3), 141rem -97rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3) , -131rem 2rem 0.02rem -0.1rem rgba(142, 234, 61, 0.6), 74rem 94rem 0.02rem -0.1rem rgba(142, 234, 61, 0.6) , -127rem -83rem 0.02rem -0.1rem rgba(142, 234, 61, 0.6), 145rem -3rem 0.02rem -0.1rem rgba(142, 234, 61, 0.6) , -118rem 7rem 0.02rem -0.05rem rgba(142, 234, 61, 0.8), 160rem 54rem 0.02rem -0.05rem rgba(142, 234, 61, 0.8) , -138rem -75rem 0.02rem -0.05rem rgba(142, 234, 61, 0.8), 102rem -86rem 0.02rem -0.05rem rgba(142, 234, 61, 0.8) , -14rem 65rem 0.02rem -0.15rem rgba(142, 234, 61, 0.7), 67rem 70rem 0.02rem -0.15rem rgba(142, 234, 61, 0.7) , -185rem -24rem 0.02rem -0.15rem rgba(142, 234, 61, 0.7), 120rem -85rem 0.02rem -0.15rem rgba(142, 234, 61, 0.7) , -25rem 74rem 0.02rem -0.05rem rgba(142, 234, 61, 0.8), 74rem 83rem 0.02rem -0.05rem rgba(142, 234, 61, 0.8) , -193rem -28rem 0.02rem -0.05rem rgba(142, 234, 61, 0.8), 72rem -28rem 0.02rem -0.05rem rgba(142, 234, 61, 0.8) , -88rem 89rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3), 142rem 89rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3) , -157rem -98rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3), 71rem -56rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3) , -108rem 81rem 0.02rem -0.15rem rgba(142, 234, 61, 0.4), 29rem 42rem 0.02rem -0.15rem rgba(142, 234, 61, 0.4) , -60rem -78rem 0.02rem -0.15rem rgba(142, 234, 61, 0.4), 49rem -55rem 0.02rem -0.15rem rgba(142, 234, 61, 0.4) , -53rem 62rem 0.02rem -0.1rem rgba(142, 234, 61, 0.4), 140rem 35rem 0.02rem -0.1rem rgba(142, 234, 61, 0.4) , -191rem -63rem 0.02rem -0.1rem rgba(142, 234, 61, 0.4), 58rem -50rem 0.02rem -0.1rem rgba(142, 234, 61, 0.4) , -52rem 99rem 0.02rem -0.1rem rgba(142, 234, 61, 0.2), 23rem 51rem 0.02rem -0.1rem rgba(142, 234, 61, 0.2) , -187rem -84rem 0.02rem -0.1rem rgba(142, 234, 61, 0.2), 189rem -64rem 0.02rem -0.1rem rgba(142, 234, 61, 0.2) , -141rem 87rem 0.02rem -0.15rem rgba(142, 234, 61, 0.2), 187rem 26rem 0.02rem -0.15rem rgba(142, 234, 61, 0.2) , -166rem -81rem 0.02rem -0.15rem rgba(142, 234, 61, 0.2), 72rem -60rem 0.02rem -0.15rem rgba(142, 234, 61, 0.2) , -42rem 44rem 0.02rem -0.1rem rgba(142, 234, 61, 0.2), 95rem 95rem 0.02rem -0.1rem rgba(142, 234, 61, 0.2) , -87rem -55rem 0.02rem -0.1rem rgba(142, 234, 61, 0.2), 109rem -58rem 0.02rem -0.1rem rgba(142, 234, 61, 0.2) , -64rem 32rem 0.02rem -0.05rem rgba(142, 234, 61, 0.7), 147rem 37rem 0.02rem -0.05rem rgba(142, 234, 61, 0.7) , -173rem -99rem 0.02rem -0.05rem rgba(142, 234, 61, 0.7), 149rem -67rem 0.02rem -0.05rem rgba(142, 234, 61, 0.7) , -136rem 88rem 0.02rem -0.15rem rgba(142, 234, 61, 0.6), 131rem 22rem 0.02rem -0.15rem rgba(142, 234, 61, 0.6) , -132rem -70rem 0.02rem -0.15rem rgba(142, 234, 61, 0.6), 163rem -11rem 0.02rem -0.15rem rgba(142, 234, 61, 0.6) , -63rem 26rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2), 121rem 32rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2) , -136rem -62rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2), 66rem -58rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2) , -152rem 18rem 0.02rem -0.15rem rgba(142, 234, 61, 0.2), 46rem 9rem 0.02rem -0.15rem rgba(142, 234, 61, 0.2) , -56rem -12rem 0.02rem -0.15rem rgba(142, 234, 61, 0.2), 131rem -88rem 0.02rem -0.15rem rgba(142, 234, 61, 0.2) , -171rem 100rem 0.02rem -0.1rem rgba(142, 234, 61, 0.4), 142rem 17rem 0.02rem -0.1rem rgba(142, 234, 61, 0.4) , -76rem -86rem 0.02rem -0.1rem rgba(142, 234, 61, 0.4), 191rem -49rem 0.02rem -0.1rem rgba(142, 234, 61, 0.4) , -191rem 12rem 0.02rem -0.05rem rgba(142, 234, 61, 0.5), 41rem 98rem 0.02rem -0.05rem rgba(142, 234, 61, 0.5) , -101rem -79rem 0.02rem -0.05rem rgba(142, 234, 61, 0.5), 12rem -75rem 0.02rem -0.05rem rgba(142, 234, 61, 0.5) , -173rem 37rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3), 109rem 35rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3) , -39rem -20rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3), 59rem -48rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3) , -36rem 66rem 0.02rem -0.1rem rgba(142, 234, 61, 0.7), 62rem 42rem 0.02rem -0.1rem rgba(142, 234, 61, 0.7) , -32rem -41rem 0.02rem -0.1rem rgba(142, 234, 61, 0.7), 147rem -64rem 0.02rem -0.1rem rgba(142, 234, 61, 0.7) , -196rem 91rem 0.02rem -0.1rem rgba(142, 234, 61, 0.6), 57rem 15rem 0.02rem -0.1rem rgba(142, 234, 61, 0.6) , -87rem -70rem 0.02rem -0.1rem rgba(142, 234, 61, 0.6), 84rem -27rem 0.02rem -0.1rem rgba(142, 234, 61, 0.6) , -127rem 53rem 0.02rem -0.1rem rgba(142, 234, 61, 0.6), 184rem 72rem 0.02rem -0.1rem rgba(142, 234, 61, 0.6) , -53rem -27rem 0.02rem -0.1rem rgba(142, 234, 61, 0.6), 86rem -62rem 0.02rem -0.1rem rgba(142, 234, 61, 0.6) , -114rem 93rem 0.02rem -0.05rem rgba(142, 234, 61, 0.6), 54rem 34rem 0.02rem -0.05rem rgba(142, 234, 61, 0.6) , -145rem -91rem 0.02rem -0.05rem rgba(142, 234, 61, 0.6), 101rem -28rem 0.02rem -0.05rem rgba(142, 234, 61, 0.6) , -144rem 89rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3), 112rem 19rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3) , -73rem -41rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3), 106rem -71rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3) , -174rem 55rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2), 72rem 36rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2) , -163rem -59rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2), 107rem -78rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2) , -199rem 83rem 0.02rem -0.1rem rgba(142, 234, 61, 0.7), 185rem 69rem 0.02rem -0.1rem rgba(142, 234, 61, 0.7) , -120rem -52rem 0.02rem -0.1rem rgba(142, 234, 61, 0.7), 110rem -2rem 0.02rem -0.1rem rgba(142, 234, 61, 0.7) , -100rem 59rem 0.02rem -0.05rem rgba(142, 234, 61, 0.4), 175rem 52rem 0.02rem -0.05rem rgba(142, 234, 61, 0.4) , -142rem -59rem 0.02rem -0.05rem rgba(142, 234, 61, 0.4), 151rem -50rem 0.02rem -0.05rem rgba(142, 234, 61, 0.4) , -125rem 100rem 0.02rem -0.1rem rgba(142, 234, 61, 0.4), 43rem 45rem 0.02rem -0.1rem rgba(142, 234, 61, 0.4) , -101rem -47rem 0.02rem -0.1rem rgba(142, 234, 61, 0.4), 17rem -69rem 0.02rem -0.1rem rgba(142, 234, 61, 0.4) , -100rem 87rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2), 78rem 59rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2) , -77rem -9rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2), 151rem -51rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2) , -146rem 10rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2), 57rem 95rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2) , -185rem -23rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2), 160rem -42rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2) , -172rem 13rem 0.02rem -0.15rem rgba(142, 234, 61, 0.3), 87rem 53rem 0.02rem -0.15rem rgba(142, 234, 61, 0.3) , -141rem -36rem 0.02rem -0.15rem rgba(142, 234, 61, 0.3), 74rem -76rem 0.02rem -0.15rem rgba(142, 234, 61, 0.3) , -121rem 100rem 0.02rem -0.15rem rgba(142, 234, 61, 0.6), 88rem 57rem 0.02rem -0.15rem rgba(142, 234, 61, 0.6) , -84rem -82rem 0.02rem -0.15rem rgba(142, 234, 61, 0.6), 76rem -2rem 0.02rem -0.15rem rgba(142, 234, 61, 0.6) , -22rem 99rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3), 55rem 15rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3) , -4rem -84rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3), 154rem -59rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3) , -72rem 12rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2), 43rem 40rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2) , -43rem -91rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2), 22rem -5rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2) , -197rem 35rem 0.02rem -0.15rem rgba(142, 234, 61, 0.4), 154rem 49rem 0.02rem -0.15rem rgba(142, 234, 61, 0.4) , -83rem -52rem 0.02rem -0.15rem rgba(142, 234, 61, 0.4), 97rem -72rem 0.02rem -0.15rem rgba(142, 234, 61, 0.4) , -143rem 62rem 0.02rem -0.1rem rgba(142, 234, 61, 0.3), 24rem 22rem 0.02rem -0.1rem rgba(142, 234, 61, 0.3) , -95rem -79rem 0.02rem -0.1rem rgba(142, 234, 61, 0.3), 67rem -15rem 0.02rem -0.1rem rgba(142, 234, 61, 0.3) , -22rem 42rem 0.02rem -0.05rem rgba(142, 234, 61, 0.4), 178rem 28rem 0.02rem -0.05rem rgba(142, 234, 61, 0.4) , -196rem -94rem 0.02rem -0.05rem rgba(142, 234, 61, 0.4), 126rem -72rem 0.02rem -0.05rem rgba(142, 234, 61, 0.4) , -154rem 36rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3), 18rem 3rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3) , -53rem -52rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3), 46rem -69rem 0.02rem -0.05rem rgba(142, 234, 61, 0.3) , -20rem 39rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2), 145rem 96rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2) , -55rem -13rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2), 86rem -50rem 0.02rem -0.05rem rgba(142, 234, 61, 0.2) , -123rem 64rem 0.02rem -0.1rem rgba(142, 234, 61, 0.1), 92rem 45rem 0.02rem -0.1rem rgba(142, 234, 61, 0.1) , -30rem -30rem 0.02rem -0.1rem rgba(142, 234, 61, 0.1), 88rem -99rem 0.02rem -0.1rem rgba(142, 234, 61, 0.1) , -164rem 50rem 0.02rem -0.1rem rgba(142, 234, 61, 0.8), 64rem 82rem 0.02rem -0.1rem rgba(142, 234, 61, 0.8) , -36rem -82rem 0.02rem -0.1rem rgba(142, 234, 61, 0.8), 144rem -96rem 0.02rem -0.1rem rgba(142, 234, 61, 0.8) , -46rem 85rem 0.02rem -0.15rem rgba(142, 234, 61, 0.4), 117rem 30rem 0.02rem -0.15rem rgba(142, 234, 61, 0.4) , -115rem -45rem 0.02rem -0.15rem rgba(142, 234, 61, 0.4), 105rem -67rem 0.02rem -0.15rem rgba(142, 234, 61, 0.4);
+  -webkit-animation: spin 100s linear infinite;
+  -moz-animation: spin 100s linear infinite;
+  -ms-animation: spin 100s linear infinite;
+  animation: spin 100s linear infinite;
+}
+
+@keyframes lookAround {
+  0% {
+    top: 20%;
+    left: 35%;
+  }
+  10% {
+    top: 20%;
+    left: 35%;
+  }
+  13% {
+    top: 20%;
+    left: 70%;
+  }
+  30% {
+    top: 20%;
+    left: 65%;
+  }
+  33% {
+    top: 20%;
+    left: 15%;
+  }
+  50% {
+    top: 20%;
+    left: 15%;
+  }
+  53% {
+    top: 10%;
+    left: 15%;
+  }
+  80% {
+    top: 5%;
+    left: 35%;
+  }
+  90% {
+    top: 7%;
+    left: 35%;
+  }
+  92% {
+    top: 20%;
+    left: 35%;
+  }
+  100% {
+    top: 20%;
+    left: 35%;
+  }
+}
+@keyframes browMove {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(0deg);
+  }
+  13% {
+    transform: rotate(-2deg);
+  }
+  30% {
+    transform: rotate(0deg);
+  }
+  33% {
+    transform: rotate(0deg) rotate(2deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  53% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(0deg) translateY(-15%);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+  92% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes aimAround {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(0deg);
+  }
+  13% {
+    transform: rotate(-4deg);
+  }
+  30% {
+    transform: rotate(0deg);
+  }
+  33% {
+    transform: rotate(0deg) rotate(95deg);
+  }
+  45% {
+    transform: rotate(0deg) rotate(100deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  53% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+  92% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulse {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+html {
+  font-size: 62.5%;
+  font-family: helvetica, arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+</style>
+<div class="sky column">
+  <div class="stars row">
+  <div class="rick column">
+    <div class="rick-hair"></div>
+    <div class="rick-head column">
+      <div class="eyebrow"></div>
+      <div class="eyes row">
+        <div class="eye--right"></div>
+        <div class="nose"></div>
+        <div class="eye--left"></div>
+      </div>
+      <div class="mouth"></div>
+    </div>
+    <div class="rick-body row">
+      <div class="arm arm--right">
+        <div class="rayGun"></div>
+      </div>
+      <div class="torso">
+        <div class="labCoat row">
+          <div class="labCoat-side labCoat--right"></div>
+          <div class="labCoat-opening"></div>
+          <div class="labCoat-side labCoat--left"></div>
+        </div>
+      </div>
+      <div class="arm arm--left"></div>
+    </div>
+    <div class="rick-belt row"></div>
+    <div class="rick-legs row">
+      <div class="rickLeg--right column">
+        <div class="sock"></div>
+        <div class="shoe"></div>
+      </div>
+      <div class="rickLeg--left column">
+        <div class="sock"></div>
+        <div class="shoe"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="ground"></div>
+</div>
